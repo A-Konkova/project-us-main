@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>You've Got Mail! ♡</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <main class="page">
+
+        <!-- OPENING SCREEN -->
+        <section class="mail-screen" id="mailScreen">
+
+            <p class="top-label">♡ A SPECIAL DELIVERY ♡</p>
+
+            <h1>You've got mail!</h1>
+
+            <p class="subtitle">
+                Someone has a little surprise for you...
+            </p>
+
+            <!-- FOUR FLOATING DECORATIONS -->
+            <img
+                src="assets/decorations/heart.png"
+                alt=""
+                class="decoration decoration-heart"
+            >
+
+            <img
+                src="assets/decorations/pokeball.png"
+                alt=""
+                class="decoration decoration-pokeball"
+            >
+
+            <img
+                src="assets/decorations/sparkle.png"
+                alt=""
+                class="decoration decoration-sparkle"
+            >
+
+            <img
+                src="assets/decorations/star.png"
+                alt=""
+                class="decoration decoration-star"
+            >
+
+            <!-- CLICKABLE ENVELOPE -->
+            <button
+                class="envelope-button"
+                id="envelopeButton"
+                aria-label="Open your anniversary letter"
+            >
+
+                <img
+                    src="assets/illustrations/envelope.png"
+                    alt="Envelope"
+                    class="envelope-image"
+                >
+
+                <img
+                    src="assets/illustrations/button.png"
+                    alt=""
+                    class="envelope-open-button"
+                >
+
+            </button>
+
+            <p class="click-hint" id="clickHint">
+                Click the envelope to open it! ♡
+            </p>
+
+        </section>
+
+
+        <!-- INVITATION SCREEN -->
+        <section
+            class="invitation-screen hidden"
+            id="invitationScreen"
+        >
+
+            <div class="paper">
+
+                <p class="top-label">♡ TO MY FAVOURITE PERSON ♡</p>
+
+                <div class="little-decoration">
+                    ✿ ♡ ✿
+                </div>
+
+                <h2>Happy Anniversary!</h2>
+
+                <p class="invitation-message">
+                    Can you believe it's already been a whole year?
+                    I wanted to make this day a little special,
+                    and I'd love to spend it with you.
+                </p>
+
+                <div class="details">
+
+    <div class="detail">
+        <span>DATE</span>
+        <strong>November 7</strong>
+    </div>
+
+    <div class="detail">
+        <span>TIME</span>
+        <strong>3:30 PM</strong>
+    </div>
+
+</div>
+
+<!-- THREE PRESENTS -->
+<div class="gifts-section">
+
+    <h3>A LITTLE SOMETHING FOR YOU ♡</h3>
+
+    <p class="gift-instruction">
+        Open your presents to discover the plans!
+    </p>
+
+    <div class="gift-container">
+
+        <!-- PRESENT 1 -->
+        <div class="gift-item">
+
+            <button class="gift-button" data-gift="1">
+                <span class="gift-icon">🎁</span>
+                <span class="gift-label">MYSTERY</span>
+            </button>
+
+            <p class="gift-reveal hidden" id="gift1">
+                A little surprise is waiting for you... 🤫
+                Location: Bayfield Centra (I wanna buy snacks)
+            </p>
+
+        </div>
+
+        <!-- PRESENT 2 -->
+        <div class="gift-item">
+
+            <button class="gift-button" data-gift="2">
+                <span class="gift-icon">🎁</span>
+                <span class="gift-label">DINNER</span>
+            </button>
+
+            <p class="gift-reveal hidden" id="gift2">
+                We're going out to eat!
+                Dress code: nice, but nothing too fancy ♡
+                Location: 
+                   BBQ Chicken on Cundles (reccomended)
+                   or Hibachi Teppanyaki
+                   or Kino sushi (a classic)
+                   and any of your suggestions...
+            </p>
+
+        </div>
+
+        <!-- PRESENT 3 -->
+        <div class="gift-item">
+
+            <button class="gift-button" data-gift="3">
+                <span class="gift-icon">🎁</span>
+                <span class="gift-label">YOUR CHOICE</span>
+            </button>
+
+            <p class="gift-reveal hidden" id="gift3">
+                Choose something for us to do together! Maybe something chill for my sanity 😮‍💨
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+                <p class="question">
+                    So... will you attend? ♡
+                </p>
+
+                <div class="answer-buttons">
+
+                    <button class="yes-button" id="yesButton">
+                        YES!! ♡
+                    </button>
+
+                    <button class="no-button" id="noButton">
+                        No
+                    </button>
+
+                </div>
+
+                <p class="little-note" id="littleNote">
+                    Choose wisely... just kidding ♡
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- YES CONFIRMATION -->
+        <section
+            class="success-screen hidden"
+            id="successScreen"
+        >
+
+            <div class="success-card">
+
+                <div class="success-heart">♥</div>
+
+                <p class="top-label">RSVP CONFIRMED</p>
+
+                <h2>YIPPEEEE!!</h2>
+
+                <p>
+                    I can't wait to celebrate with you!
+                </p>
+
+                <p class="success-decoration">♡ ✿ ♡</p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

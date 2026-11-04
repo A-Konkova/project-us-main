@@ -1,0 +1,591 @@
+
+/* ==========================
+   PROJECT US - COLOUR PALETTE
+========================== */
+
+:root {
+    --background: #EAE4F5;
+    --paper: #FFFCF4;
+    --pink: #D69BB2;
+    --dark-pink: #B97998;
+    --lavender: #E8DCEC;
+    --text: #74596D;
+    --soft-text: #A18594;
+}
+
+
+/* ==========================
+   GENERAL PAGE SETTINGS
+========================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Pixelify Sans", Arial, sans-serif;
+    color: var(--text);
+    background: var(--background);
+
+    /* Custom mouse cursor */
+    cursor: url("assets/illustrations/mouse-cursor.png") 8 8, auto;
+}
+
+button {
+    font: inherit;
+    cursor: url("assets/illustrations/mouse-cursor.png") 8 8, pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ==========================
+   MAIN PAGE
+========================== */
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    overflow: hidden;
+    position: relative;
+}
+
+.mail-screen,
+.invitation-screen,
+.success-screen {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.top-label {
+    font-family: "Silkscreen", sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--dark-pink);
+    font-weight: bold;
+}
+
+.mail-screen h1 {
+    font-family: "Press Start 2P", serif;
+    font-size: clamp(36px, 7vw, 58px);
+    font-weight: normal;
+    margin: 12px 0;
+}
+
+.subtitle {
+    color: var(--soft-text);
+    font-size: 14px;
+    margin-bottom: 35px;
+}
+
+
+/* ==========================
+   PAGE DECORATIONS
+========================== */
+
+.mail-screen {
+    position: relative;
+}
+
+/* Shared decoration settings */
+
+.decoration {
+    position: absolute;
+    height: 120px;
+    object-fit: contain;
+    pointer-events: none;
+    z-index: 1;
+    animation: floating 3s ease-in-out infinite;
+}
+
+/* Heart */
+
+.decoration-heart {
+    width: 120px;
+    left: calc(50% - 270px);
+    top: 25%;
+    animation-delay: 0s;
+}
+
+/* Pokeball */
+
+.decoration-pokeball {
+    width: 120px;
+    right: calc(50% - 270px);
+    top: 30%;
+    animation-delay: 0.7s;
+}
+
+/* Sparkle */
+
+.decoration-sparkle {
+    width: 120px;
+    left: calc(50% - 230px);
+    bottom: 12%;
+    animation-delay: 1.3s;
+}
+
+/* Star */
+
+.decoration-star {
+    width: 120px;
+    right: calc(50% - 230px);
+    bottom: 10%;
+    animation-delay: 1.9s;
+}
+
+
+/* ==========================
+   ENVELOPE
+========================== */
+
+.envelope-button {
+    position: relative;
+    background: none;
+    border: none;
+    padding: 15px;
+    z-index: 2;
+    transition: transform 0.4s ease;
+}
+
+.envelope-button:hover {
+    transform: translateY(-6px) rotate(-2deg);
+}
+
+.envelope-image {
+    display: block;
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+/* Button placed on top of the envelope */
+
+.envelope-open-button {
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+}
+
+/* Envelope opening animation */
+
+.envelope-button.open .envelope-image {
+    transform: translateY(-25px) scale(1.08);
+    opacity: 0.5;
+}
+
+.envelope-button.open .envelope-open-button {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+}
+
+.click-hint {
+    color: var(--soft-text);
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-top: 12px;
+}
+
+
+/* ==========================
+   INVITATION PAPER
+========================== */
+
+.invitation-screen {
+    animation: fadeIn 1s ease;
+}
+
+.paper {
+    width: min(570px, 95vw);
+    padding: 45px 35px;
+    background: var(--paper);
+    border: 1px solid #eadbd2;
+    box-shadow: 0 15px 40px #70566b20;
+    border-radius: 5px;
+    position: relative;
+}
+
+.paper::before {
+    content: "";
+    position: absolute;
+    inset: 9px;
+    border: 1px dashed #E8CBD5;
+    pointer-events: none;
+}
+
+.paper h2,
+.success-card h2 {
+    font-family: "Press Start 2P", serif;
+    font-weight: normal;
+    font-size: clamp(27px, 5vw, 38px);
+    margin: 15px 0;
+    line-height: 1.8;
+}
+
+.little-decoration {
+    color: var(--pink);
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.invitation-message {
+    max-width: 400px;
+    margin: 20px auto;
+    line-height: 1.9;
+    font-family: "Pixelify Sans", serif;
+    font-size: 15px;
+}
+
+
+/* ==========================
+   DATE / TIME / PLANS
+========================== */
+
+.details {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 30px 0;
+}
+
+.detail {
+    flex: 1;
+    min-width: 0;
+    padding: 15px 8px;
+    background: var(--lavender);
+    border-radius: 8px;
+}
+
+.detail:nth-child(2) {
+    background: #F4DFE5;
+}
+
+.detail:nth-child(3) {
+    background: #F5EBD3;
+}
+
+.detail span,
+.detail strong {
+    display: block;
+}
+
+.detail span {
+    font-family: "Silkscreen", sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    margin-bottom: 9px;
+    color: var(--soft-text);
+}
+
+.detail strong {
+    font-size: 12px;
+}
+
+.question {
+    font-family: "Pixelify Sans", serif;
+    font-size: 19px;
+    margin-top: 30px;
+}
+
+
+/* ==========================
+   YES / NO BUTTONS
+========================== */
+
+.answer-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    min-height: 70px;
+    margin-top: 15px;
+}
+
+.yes-button,
+.no-button {
+    border: none;
+    border-radius: 30px;
+    padding: 13px 28px;
+    transition: transform 0.3s ease;
+}
+
+.yes-button {
+    background: var(--pink);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.no-button {
+    background: var(--lavender);
+    color: var(--text);
+    font-size: 14px;
+}
+
+.yes-button:hover {
+    background: var(--dark-pink);
+}
+
+.little-note {
+    font-size: 11px;
+    color: var(--soft-text);
+    margin-top: 20px;
+}
+
+/* ==========================
+   THREE INTERACTIVE PRESENTS
+========================== */
+
+.gifts-section {
+    margin: 25px auto;
+    width: 100%;
+}
+
+.gifts-section h3 {
+    font-family: "Silkscreen", sans-serif;
+    font-size: 14px;
+    color: var(--dark-pink);
+    margin-bottom: 8px;
+}
+
+.gift-instruction {
+    font-size: 13px;
+    color: var(--soft-text);
+    margin-bottom: 20px;
+}
+
+.gift-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.gift-item {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gift-button {
+    width: 100%;
+    min-height: 115px;
+    border: 2px solid #E8CBD5;
+    border-radius: 10px;
+    background: #F4DFE5;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gift-item:nth-child(2) .gift-button {
+    background: var(--lavender);
+}
+
+.gift-item:nth-child(3) .gift-button {
+    background: #F5EBD3;
+}
+
+.gift-button:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 0 #B9A4C5;
+}
+
+.gift-icon {
+    font-size: 38px;
+}
+
+.gift-label {
+    font-family: "Silkscreen", sans-serif;
+    font-size: 10px;
+}
+
+.gift-reveal {
+    font-size: 13px;
+    line-height: 1.6;
+    padding: 10px 5px;
+    margin: 10px 0 0;
+    animation: fadeIn 0.4s ease;
+}
+
+.gift-button.open .gift-icon {
+    transform: scale(1.2);
+}
+
+.gift-icon {
+    transition: transform 0.3s ease;
+}
+
+/* ==========================
+   SUCCESS SCREEN
+========================== */
+
+.success-card {
+    width: min(430px, 90vw);
+    padding: 45px 25px;
+    background: var(--paper);
+    border-radius: 15px;
+    box-shadow: 0 12px 35px #70566b20;
+    animation: popIn 0.5s ease;
+}
+
+.success-card p:not(.top-label) {
+    line-height: 1.7;
+}
+
+.success-heart {
+    font-size: 65px;
+    color: var(--pink);
+    animation: heartbeat 1s infinite;
+}
+
+.success-decoration {
+    color: var(--pink);
+    font-size: 25px;
+}
+
+
+/* ==========================
+   ANIMATIONS
+========================== */
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-14px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 500px) {
+
+    .paper {
+        padding: 35px 20px;
+    }
+
+    .details {
+        flex-direction: column;
+    }
+
+    .detail {
+        padding: 12px;
+    }
+
+    .envelope-image {
+        width: 160px;
+        height: 160px;
+    }
+
+    .decoration {
+        height: 55px;
+    }
+
+    .decoration-heart {
+        width: 55px;
+        left: 2%;
+        top: 22%;
+    }
+
+    .decoration-pokeball {
+        width: 55px;
+        right: 2%;
+        top: 27%;
+    }
+
+    .decoration-sparkle {
+        width: 50px;
+        left: 5%;
+        bottom: 10%;
+    }
+
+    .decoration-star {
+        width: 55px;
+        right: 5%;
+        bottom: 8%;
+    }
+
+    .gift-container {
+    gap: 8px;
+}
+
+.gift-button {
+    min-height: 95px;
+}
+
+.gift-icon {
+    font-size: 30px;
+}
+
+.gift-label {
+    font-size: 8px;
+}
+
+.gift-reveal {
+    font-size: 11px;
+}
+}
